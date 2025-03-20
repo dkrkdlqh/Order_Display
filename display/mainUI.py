@@ -73,11 +73,8 @@ class MainUI(QMainWindow, form_class):
     
     def closeEvent(self, event):
         self.evt.set()
-        print("프로그램 종료11")
         self.sleepWorker.stop()
-        print("프로그램 종료22")
         self.sleepWorker.timer.disconnect()
-        print("프로그램 종료33")
         
         self.UI_update_thread.join()
         print("프로그램 종료")
@@ -90,6 +87,7 @@ class MainUI(QMainWindow, form_class):
     def initUI(self):    
 
         self.setWindowTitle("주문 알림 서비스")#앱 상단 타이틀
+        self.setWindowIcon(QIcon("icon.png"))
         #self.setFixedSize(800, 600) #창 사이즈 고정
         self.setCenterPos() #앱을 스크린의 '중앙' 위치로
         self.drawSlotItemUI()
